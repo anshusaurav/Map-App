@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ReactMapGL, {Marker, NavigationControl, Popup} from 'react-map-gl'
+import ReactMapGL, {Marker, NavigationControl} from 'react-map-gl'
 import debounce from 'tiny-debounce'
 import CityPin from './CityPin'
 import { Input, Ul, Li, SuggestContainer } from "./style"
@@ -8,8 +8,8 @@ import { Input, Ul, Li, SuggestContainer } from "./style"
 class Home extends React.Component {
   state = {
     isOpen: false, start: null, name: '', suggestions: null, city: null, mappedCities: null, viewport: {
-      width: window.innerWidth-46,
-      height: window.innerHeight - 364,
+      width: window.innerWidth-80,
+      height: window.innerHeight - 64,
       zoom: 2,
     }, loading: false, visible: false, isNear: true
   }
@@ -122,11 +122,10 @@ class Home extends React.Component {
 
   render() {
     const {suggestions, city, viewport, mappedCities, loading, visible, name, isNear} = this.state
-    const {users} = this.props
     return (
       <div className="h-100 w-screen">
-        <div className="bg-white shadow overflow-hidden sm:rounded-lg mx-0 md:mx-5  my-0 md:my-10">
-          <div className="px-4 py-5 sm:px-6">
+        <div className="bg-white shadow overflow-hidden sm:rounded-lg mx-3  my-3">
+          <div className="px-1 py-1">
             <div className="flex flex-no-wrap md:flex-wrap mr-6 my-2 ">
                 <div className="relative">
                 <Input type="search" name="name" onChange={this.handleChange}
