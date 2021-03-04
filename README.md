@@ -1,6 +1,6 @@
-##Map Application
+## Map Application
 
-## Installation and Setup Instructions
+### Installation and Setup Instructions
 
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
@@ -8,10 +8,6 @@ Clone down this repository. You will need `node` and `npm` installed globally on
 Installation:
 
 `npm install`  
-
-To Run Test Suite:  
-
-`npm test`  
 
 To Start Server:
 
