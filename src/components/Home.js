@@ -4,12 +4,12 @@ import ReactMapGL, {Marker, NavigationControl} from 'react-map-gl'
 import debounce from 'tiny-debounce'
 import CityPin from './CityPin'
 import { Input, Ul, Li, SuggestContainer } from "./style"
-
+import cx from 'classnames';
 class Home extends React.Component {
   state = {
     isOpen: false, start: null, name: '', suggestions: null, city: null, mappedCities: null, viewport: {
       width: window.innerWidth-80,
-      height: window.innerHeight - 150,
+      height: window.innerHeight - 220,
       zoom: 2,
     }, loading: false, visible: false, isNear: true
   }
@@ -18,12 +18,12 @@ class Home extends React.Component {
     const viewport = {...this.state.viewport}
     if (this.parentNode) {
       const {width, height} = this.parentNode.getBoundingClientRect()
-      viewport.width = width
-      viewport.height = height
+      viewport.width = width-10;
+      viewport.height = height- 10;
       this.setState({viewport})
     }
   }
-  windowResizeHandler = e => this.setViewportSizeState()
+  windowResizeHandler = () => this.setViewportSizeState()
 
   debouncedWindowResizeHandler = debounce(this.windowResizeHandler, 300)
 
@@ -143,7 +143,7 @@ class Home extends React.Component {
                   className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in ml-4">
                   <label className="inline-flex items-center mt-3">
                     <input type="checkbox" className="form-checkbox h-5 w-5" onChange={this.handleToggle}/><
-                      span className="ml-2 text-gray-700">Farthest</span>
+                      span  className={cx("ml-2 ", {"line-through text-gray-500": isNear})}>Farthest</span>
                   </label>
                 </div>
 
@@ -155,7 +155,7 @@ class Home extends React.Component {
               <div className="bg-gray-50">
                 <ReactMapGL style={{textAlign: 'left'}}
                             mapboxApiAccessToken={
-                              'pk.eyJ1IjoiZGFuY2UyZGllIiwiYSI6ImNqa3Voa254bDk1bjEzcW1sOTFlbjl0eW8ifQ.d72JL668F0_uoLLK1lqhGQ'
+                              'pk.eyJ1IjoiYW5zaHVzYXVyYXYiLCJhIjoiY2tsdmh3MDRjMmdrcTJ3cW1ha2tvaWE1aCJ9.72IafeBeDVR56UN6NT8CjQ'
                             }
                             {...viewport}
                             onViewportChange={this.updateViewport}>
@@ -167,8 +167,8 @@ class Home extends React.Component {
                     <Marker
                       longitude={city.location.lon}
                       latitude={city.location.lat}
-                      offsetLeft={-20}
-                      offsetTop={-10}
+                      offsetLeft={-12}
+                      offsetTop={-8}
                     >
                       <CityPin
                         size={20}
