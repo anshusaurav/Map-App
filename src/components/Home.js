@@ -9,7 +9,7 @@ class Home extends React.Component {
   state = {
     isOpen: false, start: null, name: '', suggestions: null, city: null, mappedCities: null, viewport: {
       width: window.innerWidth-80,
-      height: window.innerHeight - 64,
+      height: window.innerHeight - 150,
       zoom: 2,
     }, loading: false, visible: false, isNear: true
   }
@@ -109,24 +109,18 @@ class Home extends React.Component {
 
     })
   }
-
-  onAutoCompleteHandle = (val) => {
-    alert(val)
-  }
-
   componentWillUnmount() {
     window.removeEventListener('resize', this.debouncedWindowResizeHandler)
   }
-
   updateViewport = viewport => this.setState({viewport: {...viewport}})
 
   render() {
     const {suggestions, city, viewport, mappedCities, loading, visible, name, isNear} = this.state
     return (
-      <div className="h-100 w-screen">
+      <div className="max-h-screen max-w-screen">
         <div className="bg-white shadow overflow-hidden sm:rounded-lg mx-3  my-3">
           <div className="px-1 py-1">
-            <div className="flex flex-no-wrap md:flex-wrap mr-6 my-2 ">
+            <div className="flex flex-no-wrap md:flex-wrap mx-2 my-2 ">
                 <div className="relative">
                 <Input type="search" name="name" onChange={this.handleChange}
                        value={name}
