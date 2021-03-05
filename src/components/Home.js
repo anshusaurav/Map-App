@@ -155,11 +155,12 @@ class Home extends React.Component {
               <div className="bg-gray-50">
                 <ReactMapGL style={{textAlign: 'left'}}
                             mapboxApiAccessToken={
-                              'pk.eyJ1IjoiYW5zaHVzYXVyYXYiLCJhIjoiY2tsdzI3bW9hMmV4eDJ2bndwcGllbDFkbCJ9.KYEEmPDQOWrpZFVh63P3cg'
+                              'pk.eyJ1IjoiYW5zaHVzYXVyYXYiLCJhIjoiY2tsdmh3MDRjMmdrcTJ3cW1ha2tvaWE1aCJ9.72IafeBeDVR56UN6NT8CjQ'
                             }
                             {...viewport}
                             onViewportChange={this.updateViewport}>
                   <NavigationControl
+                    style={{bottom: 48}}
                     onViewportChange={this.updateViewport}
                     showCompass={true}
                   />
@@ -167,8 +168,8 @@ class Home extends React.Component {
                     <Marker
                       longitude={city.location.lon}
                       latitude={city.location.lat}
-                      offsetLeft={-12}
-                      offsetTop={-8}
+                      offsetLeft={0}
+                      offsetTop={0}
                     >
                       <CityPin
                         size={20}
@@ -184,8 +185,8 @@ class Home extends React.Component {
 
                             latitude={mCity.geometry.coordinates[0]}
                             longitude={mCity.geometry.coordinates[1]}
-                            offsetLeft={-20}
-                            offsetTop={-10}
+                            offsetLeft={0}
+                            offsetTop={0}
                           >
                             <CityPin
                               size={20}
