@@ -155,7 +155,7 @@ class Home extends React.Component {
               <div className="bg-gray-50">
                 <ReactMapGL style={{textAlign: 'left'}}
                             mapboxApiAccessToken={
-                              'pk.eyJ1IjoiYW5zaHVzYXVyYXYiLCJhIjoiY2tsdmh3MDRjMmdrcTJ3cW1ha2tvaWE1aCJ9.72IafeBeDVR56UN6NT8CjQ'
+                              'pk.eyJ1IjoiYW5zaHVzYXVyYXYiLCJhIjoiY2tsdzI3bW9hMmV4eDJ2bndwcGllbDFkbCJ9.KYEEmPDQOWrpZFVh63P3cg'
                             }
                             {...viewport}
                             onViewportChange={this.updateViewport}>
